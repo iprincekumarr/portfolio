@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prince Kumarr | Cybersecurity Enthusiast & Developer</title>
+    <title>Portfolio || Prince Kumarr</title>
     <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+NZ+Basic:wght@100..400&family=Smooch+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         /* ===== RESET & BASE ===== */
@@ -21,7 +23,7 @@
             --bg-card: #141e2b;
             --text-primary: #e8edf5;
             --text-secondary: #94a3b8;
-            --accent-cyan: #00d4ff;
+            --accent-cyan: #0af350;
             --accent-blue: #0a84ff;
             --accent-glow: rgba(0, 212, 255, 0.15);
             --border-glow: rgba(0, 212, 255, 0.25);
@@ -33,11 +35,12 @@
         }
 
         body {
-            font-family: var(--font-main);
+            font-family: "Iceberg";
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            /* background-image: url(bg.gif); */
         }
 
         a {
@@ -672,6 +675,17 @@
             .skill-card i {
                 font-size: 1.8rem;
             }
+
+
+            .iceberg-intro {
+    font-family: "Iceberg", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 65px;
+            }
+            .typewriter {
+    background-color: rgba(9, 9, 9, 0.737);
+}
         }
     </style>
 </head>
@@ -681,7 +695,7 @@
     <!-- ===== NAVIGATION ===== -->
     <nav>
         <div class="container">
-            <div class="logo">Prince<span>.</span></div>
+            <div class="logo iceberg-intro">Prince<span>.</span></div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -702,8 +716,52 @@
                 <i class="fas fa-shield-halved"></i> Cybersecurity &amp; Development
             </div>
             <h1>
-                Hi, I'm <span class="highlight">Prince Kumarr</span>
+                <span>Hi, I'm</span> <span class="highlight typewriter iceberg-logo " id="typewriter">Prince Kumarr</span>
             </h1>
+            <!-- <div class="typewriter iceberg-logo hero-subtitle" id="typewriter"> I am  </div> -->
+                    <script>const messages = [
+
+                            "Prince Kumarr...",
+                            "an IT Student...",
+                            "a Developer...",
+                            "an Enthusiast...",
+                        ];
+
+                        let msgIndex = 0;
+                        let charIndex = 0;
+                        let isDeleting = false;
+
+                        const element = document.getElementById("typewriter");
+
+                        function type() {
+                            const current = messages[msgIndex];
+                            element.textContent = current.substring(0, charIndex);
+
+                            if (!isDeleting && charIndex < current.length) {
+                                // typing forward
+                                charIndex++;
+                                setTimeout(type, 60);
+                            }
+                            else if (isDeleting && charIndex > 0) {
+                                // deleting
+                                charIndex--;
+                                setTimeout(type, 30);
+                            }
+                            else if (!isDeleting && charIndex === current.length) {
+                                // pause at end → start deleting
+                                isDeleting = true;
+                                setTimeout(type, 1800); // how long to show each phrase
+                            }
+                            else if (isDeleting && charIndex === 0) {
+                                // next message
+                                isDeleting = false;
+                                msgIndex = (msgIndex + 1) % messages.length;
+                                setTimeout(type, 500);
+                            }
+                        }
+
+                        type();
+                    </script>
             <p class="hero-subtitle">IT Student &bull; Developer &bull; Enthusiast</p>
             <div class="hero-location">
                 <i class="fas fa-location-dot"></i> Gorakhpur, Uttar Pradesh, India 273001
